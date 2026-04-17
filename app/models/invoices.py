@@ -13,7 +13,7 @@ class Invoices(Base):
     id : Mapped[UUID] = mapped_column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
     order_id : Mapped[UUID] = mapped_column(UUID(as_uuid=True), ForeignKey('orders.id'), nullable=False)
     subtotal : Mapped[Numeric] = mapped_column(Numeric(10, 2), nullable=False)
-    gst_ammount : Mapped[Numeric] = mapped_column(Numeric(10, 2), default=0)
+    gst_amount : Mapped[Numeric] = mapped_column(Numeric(10, 2), default=0)
     total : Mapped[Numeric] = mapped_column(Numeric(10, 2), nullable=False)
     gst_enabled : Mapped[Boolean] = mapped_column(Boolean, default=False)
     pdf_path : Mapped[Optional[str]] = mapped_column(String)
