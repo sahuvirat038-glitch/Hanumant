@@ -15,12 +15,13 @@ class BusinessResponse(BaseModel):
     business_name: str
     city: str
     category_id: UUID
-    latitude : float
-    longitude: float
+    latitude : Optional[float]
+    longitude: Optional[float]
     gst_number: Optional[str]
     gst_enabled : bool
     is_verified : bool
     rating : float
+    invoice_number: Optional[str]
     created_at : datetime
     updated_at : Optional[datetime]
 

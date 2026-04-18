@@ -12,6 +12,7 @@ class InvoiceResponse(BaseModel):
     total: Decimal
     gst_enabled : bool
     pdf_path : Optional[str]
+    invoice_number: Optional[str]
     created_at: datetime
 
     class Config:

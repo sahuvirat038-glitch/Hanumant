@@ -6,6 +6,8 @@ from datetime import datetime
 
 
 class OrderItemCreate(BaseModel):
+    product_id: UUID
+    unit_id: UUID
     quantity : int
 
 class OrderItemResponse(BaseModel):

@@ -15,7 +15,7 @@ class Messages(Base):
 
     id: Mapped[UUID] = mapped_column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
     conversation_id : Mapped[UUID] = mapped_column(UUID(as_uuid=True), ForeignKey('conversations.id'), nullable=False)
-    sender_id : Mapped[UUID] = mapped_column(UUID(as_uuid=True), ForeignKey('user.id'), nullable=False)
+    sender_id : Mapped[UUID] = mapped_column(UUID(as_uuid=True), ForeignKey('users.id'), nullable=False)
     content : Mapped[str] = mapped_column(String, nullable=False)
     message_type : Mapped[MessageType] = mapped_column(Enum(MessageType), nullable=False)
     is_read : Mapped[bool] = mapped_column(Boolean, nullable=False, default=False)

@@ -14,7 +14,7 @@ class Review(Base):
     business_id : Mapped[UUID] = mapped_column(UUID(as_uuid=True), ForeignKey("business.id"), nullable=False)
     retailer_id: Mapped[UUID] = mapped_column(UUID(as_uuid=True), ForeignKey("retailer.id"), nullable=False)
     rating : Mapped[int] = mapped_column(Integer, default=0, nullable=False)# range 1 to 5
-    comment : Mapped[Optional[str]] = mapped_column(String, null=True)
+    comment : Mapped[Optional[str]] = mapped_column(String, nullable=True)
     created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), server_default=func.now())
 
 

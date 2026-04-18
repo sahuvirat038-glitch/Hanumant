@@ -4,14 +4,14 @@ from typing import Optional
 from datetime import datetime
 
 class ReviewCreate(BaseModel):
-    rating: float
+    rating: int
     comment: Optional[str]
 
 class ReviewResponse(BaseModel):
     id : UUID
     business_id : UUID
     retailer_id: UUID
-    rating: float
+    rating: int
     comment: Optional[str]
     created_at: datetime
 

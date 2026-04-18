@@ -20,4 +20,4 @@ class Unit(Base):
     name: Mapped[str] = mapped_column(String(255), unique=True)
     symbol: Mapped[str] = mapped_column(String(255), unique=True)
     category: Mapped[Category] = mapped_column(Enum(Category))
-    created_at: Mapped[datetime] = mapped_column(DateTime, default=func.now())
+    created_at: Mapped[datetime] = mapped_column(DateTime, server_default=func.now())

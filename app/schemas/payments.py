@@ -9,7 +9,6 @@ from main.app.models.payments import PaymentMode, Status
 class PaymentCreate(BaseModel):
     amount: Decimal
     payment_mode: PaymentMode
-    status: Status
 
 class PaymentResponse(BaseModel):
     id : UUID

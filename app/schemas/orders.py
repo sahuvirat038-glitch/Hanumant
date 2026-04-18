@@ -6,8 +6,7 @@ from datetime import datetime
 from main.app.models.orders import Status
 
 class OrderCreate(BaseModel):
-    status: Status
-    rejection_reason: Optional[str]
+    business_id: UUID
     notes: Optional[str]
 
 class OrderResponse(BaseModel):

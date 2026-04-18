@@ -13,7 +13,7 @@ class MessageResponse(BaseModel):
     conversation_id : UUID
     sender_id : UUID
     content : str
-    message : MessageType
+    message_type : MessageType
     is_read : bool
     created_at : datetime
 

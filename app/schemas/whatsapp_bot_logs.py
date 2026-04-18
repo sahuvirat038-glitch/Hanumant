@@ -1,4 +1,4 @@
-from pydantic import BaseModel, Json
+from pydantic import BaseModel
 from uuid import UUID
 from typing import Optional
 from datetime import datetime
@@ -12,9 +12,9 @@ class WhatsappBotLogResponse(BaseModel):
     id : UUID
     phone_number : str
     incoming_message : str
-    parsed_order : Json
+    parsed_order : Optional[dict]
     status : Status
-    order_id : UUID
+    order_id : Optional[UUID]
     created_at : datetime
 
     class Config:

@@ -9,9 +9,7 @@ class NotificationCreate(BaseModel):
     title: str
     body: str
     type: Type
-    # reference : UUId
-    is_read : bool
-    created_at: datetime
+    reference_id: Optional[UUID]
 
 class NotificationResponse(BaseModel):
     id : UUID
@@ -19,7 +17,7 @@ class NotificationResponse(BaseModel):
     title: str
     body: str
     type: Type
-    # refernce
+    reference_id: Optional[UUID]
     is_read: bool
     created_at: datetime
 
