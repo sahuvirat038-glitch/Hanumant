@@ -2,7 +2,7 @@ from pydantic import BaseModel
 from uuid import UUID
 from typing import Optional
 from datetime import datetime
-from main.app.models.whatsapp_bot_logs import Status
+from app.models.whatsapp_bot_logs import Status
 
 
 class WhatsappBotLogCreate(BaseModel):

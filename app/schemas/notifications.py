@@ -3,7 +3,7 @@ from pydantic import BaseModel
 from uuid import UUID
 from typing import Optional
 from datetime import datetime
-from main.app.models.notifications import Type
+from app.models.notifications import Type
 
 class NotificationCreate(BaseModel):
     title: str

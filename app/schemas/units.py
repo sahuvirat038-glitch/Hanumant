@@ -1,12 +1,18 @@
 from datetime import datetime
 from pydantic import BaseModel
 from uuid import UUID
-from main.app.models.units import Category
+from typing import Optional
+from app.models.units import Category
 
 class UnitsCreate(BaseModel):
     name: str
     symbol: str
     category: Category
+
+class UnitUpdate(BaseModel):
+    name: Optional[str] = None
+    symbol: Optional[str] = None
+    category: Optional[Category] = None
 
 class UnitsResponse(BaseModel):
     id : UUID

@@ -15,6 +15,7 @@ class Settings(BaseSettings):
     GOOGLE_CLIENT_SECRET: str
     WHATSAPP_API_KEY: str
     WHATSAPP_PHONE_NUMBER_ID: str
+    REDIRECT_URI: str
 
     model_config = {"env_file": ".env"}
 

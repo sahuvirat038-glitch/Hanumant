@@ -1,7 +1,7 @@
 from sqlalchemy.orm import Mapped, mapped_column
 from sqlalchemy import String, DateTime, Float, ForeignKey, func
 from datetime import datetime
-from main.app.database import Base
+from app.database import Base
 from sqlalchemy.dialects.postgresql import UUID
 import uuid
 

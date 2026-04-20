@@ -3,7 +3,7 @@ from pydantic import BaseModel
 from uuid import UUID
 from typing import Optional
 from datetime import datetime
-from main.app.models.payments import PaymentMode, Status
+from app.models.payments import PaymentMode, Status
 
 
 class PaymentCreate(BaseModel):

@@ -3,7 +3,7 @@ from pydantic import BaseModel
 from uuid import UUID
 from typing import Optional
 from datetime import datetime
-from main.app.models.junction import Status
+from app.models.junction import Status
 
 class JunctionResponse(BaseModel):
     id : UUID

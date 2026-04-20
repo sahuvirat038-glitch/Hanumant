@@ -2,7 +2,7 @@ from sqlalchemy.orm import Mapped, mapped_column
 from sqlalchemy import DateTime, Enum, ForeignKey, func
 from datetime import datetime
 from enum import Enum as PyEnum
-from main.app.database import Base
+from app.database import Base
 from sqlalchemy.dialects.postgresql import UUID
 import uuid
 

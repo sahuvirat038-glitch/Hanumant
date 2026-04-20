@@ -2,7 +2,7 @@ from sqlalchemy.orm import Mapped, mapped_column
 from sqlalchemy import String, Boolean, DateTime, ForeignKey, Numeric, func
 from datetime import datetime
 from typing import Optional
-from main.app.database import Base
+from app.database import Base
 from sqlalchemy.dialects.postgresql import UUID
 import uuid
 from decimal import Decimal

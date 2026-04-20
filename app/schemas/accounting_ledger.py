@@ -3,7 +3,7 @@ from decimal import Decimal
 from pydantic import BaseModel
 from uuid import UUID
 from typing import Optional
-from main.app.models.accounting_ledger import EntryType
+from app.models.accounting_ledger import EntryType
 
 
 class AccountLedgerResponse(BaseModel):

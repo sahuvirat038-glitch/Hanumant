@@ -3,7 +3,7 @@ from typing import Optional
 
 from pydantic import BaseModel
 from uuid import UUID
-from main.app.models.users import Role
+from app.models.users import Role
 
 
 class UsersCreate(BaseModel):
@@ -16,6 +16,9 @@ class UsersCreate(BaseModel):
 class UsersLogin(BaseModel):
     email: str
     password: str
+
+class UserRefresh(BaseModel):
+    token: str
 
 class UsersOutput(BaseModel):
     id : UUID

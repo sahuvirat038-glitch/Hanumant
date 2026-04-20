@@ -3,7 +3,7 @@ from pydantic import BaseModel
 from uuid import UUID
 from typing import Optional
 from datetime import datetime
-from main.app.models.orders import Status
+from app.models.orders import Status
 
 class OrderCreate(BaseModel):
     business_id: UUID
