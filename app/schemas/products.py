@@ -10,6 +10,12 @@ class ProductCreate(BaseModel):
     price: Decimal
     stock_quantity: int
 
+class ProductUpdate(BaseModel):
+    name: Optional[str]
+    description: Optional[str]
+    price: Optional[Decimal]
+    stock_quantity: Optional[int]
+
 class ProductResponse(BaseModel):
     id :UUID
     business_id : UUID

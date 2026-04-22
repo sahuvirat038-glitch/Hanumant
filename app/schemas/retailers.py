@@ -8,12 +8,18 @@ class RetailerCreate(BaseModel):
     shop_name : str
     city : str
 
+class RetailerUpdate(BaseModel):
+    shop_name : Optional[str]
+    city : Optional[str]
+    latitude: Optional[float]
+    longitude: Optional[float]
+
 class RetailerResponse(BaseModel):
     id : UUID
     user_id : UUID
     shop_name : str
-    latitude : float
-    longitude : float
+    latitude : Optional[float]
+    longitude : Optional[float]
     city : str
     created_at : datetime
     updated_at : Optional[datetime]
