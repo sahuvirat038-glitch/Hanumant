@@ -9,12 +9,14 @@ class ProductCreate(BaseModel):
     description: Optional[str]
     price: Decimal
     stock_quantity: int
+    unit_id: UUID
 
 class ProductUpdate(BaseModel):
     name: Optional[str]
     description: Optional[str]
     price: Optional[Decimal]
     stock_quantity: Optional[int]
+    unit_id: Optional[UUID]
 
 class ProductResponse(BaseModel):
     id :UUID

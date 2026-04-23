@@ -1,5 +1,6 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+
 from app.config.settings import settings
 from app.routers.users import router as users_router
 from app.routers.categories import router as category_router
@@ -29,6 +30,7 @@ app.include_router(units_router)
 app.include_router(business_router)
 app.include_router(retailers_router)
 app.include_router(products_router)
+
 
 
 @app.get("/")
