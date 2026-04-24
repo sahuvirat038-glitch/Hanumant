@@ -6,16 +6,6 @@ PATCH /junction/{id}/accept — retailer accepts invite (auth required)
 PATCH /junction/{id}/block — business owner blocks retailer (auth required)
 GET /junction/my-retailers — business owner gets all their retailers (auth required)
 
-
-7. routers/products.py
-
-POST /products/create — create product (auth required)
-GET /products — get all products for a business
-GET /products/{id} — get single product
-PATCH /products/{id} — update product (auth required)
-PATCH /products/{id}/toggle — toggle active/inactive (auth required)
-
-
 8. routers/orders.py
 
 POST /orders/create — retailer places order (auth required)

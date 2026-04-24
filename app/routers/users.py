@@ -18,7 +18,8 @@ router = APIRouter(
 
 @router.post("/register", response_model=UsersOutput)
 async def register_user(user: UsersCreate, db: AsyncSession = Depends(get_db)):
-    exist_user =  (await db.execute(select(Users).where(Users.email == user.email))).scalars().first()
+    result =  (await db.execute(select(Users).where(Users.email == user.email)))
+    exist_user = result.scalar_one_or_none()
     exist_phone = (await db.execute(select(Users).where(Users.phone == user.phone))).scalars().first()
     if exist_user:
         raise HTTPException(

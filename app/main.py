@@ -8,6 +8,7 @@ from app.routers.units import router as units_router
 from app.routers.businesses import router as business_router
 from app.routers.retailers import router as retailers_router
 from app.routers.products import router as products_router
+from app.routers.junction import router as junction_router
 
 
 
@@ -30,7 +31,7 @@ app.include_router(units_router)
 app.include_router(business_router)
 app.include_router(retailers_router)
 app.include_router(products_router)
-
+app.include_router(junction_router)
 
 
 @app.get("/")
