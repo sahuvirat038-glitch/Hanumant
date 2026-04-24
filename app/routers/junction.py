@@ -57,11 +57,77 @@ async def invite(junction: JunctionCreate, db: AsyncSession = Depends(get_db), c
         retailer_id=junction.retailer_id,
         status=Status.pending,
     )
-    db.add(new_junction)  
+    db.add(new_junction)
     await db.commit()
     await db.refresh(new_junction)
     return new_junction
 
+@router.patch("/{id}/accept", response_model=JunctionResponse)
+async def accept(id: UUID, current_user = Depends(get_current_user), db: AsyncSession = Depends(get_db)):
+    if current_user.role != "retailer":
+        raise HTTPException(
+            status_code=status.HTTP_403_FORBIDDEN,
+            detail="Not a retailer"
+        )
 
+    result = await db.execute(select(Junction).where(Junction.id == id))
+    junction_exist = result.scalar_one_or_none()
+    if not junction_exist:
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail="Junction not found"
+        )
+
+    if junction_exist.status != Status.pending:
+        raise HTTPException(
+            status_code=status.HTTP_400_BAD_REQUEST,
+            detail="Junction not pending"
+        )
+
+    junction_exist.status = Status.active
+    await db.commit()
+    await db.refresh(junction_exist)
+    return junction_exist
+
+@router.patch("/{id}/block", response_model=JunctionResponse)
+async def block(id: UUID, current_user = Depends(get_current_user), db: AsyncSession = Depends(get_db)):
+    if current_user.role != "business_owner":
+        raise HTTPException(
+            status_code=status.HTTP_403_FORBIDDEN,
+            detail="Not a Business owner"
+        )
+
+    result = await db.execute(select(Junction).where(Junction.id == id))
+    junction_exist = result.scalar_one_or_none()
+    if not junction_exist:
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail="Junction not found"
+        )
+
+    junction_exist.status = Status.blocked
+    await db.commit()
+    await db.refresh(junction_exist)
+    return junction_exist
+
+@router.get("/my-retailers", response_model=List[JunctionResponse])
+async def get_my_retailers(db: AsyncSession = Depends(get_db), current_user = Depends(get_current_user)):
+    if current_user.role != "business_owner":
+        raise HTTPException(
+            status_code=status.HTTP_403_FORBIDDEN,
+            detail="Not a Business owner"
+        )
+
+    result = await db.execute(select(Business).where(Business.user_id == current_user.id))
+    business_exist = result.scalar_one_or_none()
+
+    if not business_exist:
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail="Business not found"
+        )
+    result = await db.execute(select(Junction).where(Junction.business_id == business_exist.id, Junction.status == Status.active))
+    junction = result.scalars().all()
+    return junction
 
 
