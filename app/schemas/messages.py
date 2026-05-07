@@ -6,7 +6,9 @@ from datetime import datetime
 from app.models.messages import MessageType
 
 class MessageCreate(BaseModel):
-    content : str
+    conversation_id: UUID
+    content: str
+    message_type: Optional[MessageType] = MessageType.text
 
 class MessageResponse(BaseModel):
     id : UUID
@@ -19,4 +21,5 @@ class MessageResponse(BaseModel):
 
     class Config:
         from_attributes = True
+
 

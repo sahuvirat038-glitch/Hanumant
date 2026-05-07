@@ -3,6 +3,11 @@ from uuid import UUID
 from typing import Optional
 from datetime import datetime
 
+class ConversationCreate(BaseModel):
+    business_id: UUID
+    retailer_id: UUID
+    order_id: Optional[UUID] = None
+
 class ConversationResponse(BaseModel):
     id : UUID
     business_id : UUID
@@ -15,4 +20,3 @@ class ConversationResponse(BaseModel):
 
     class Config:
         from_attributes = True
-

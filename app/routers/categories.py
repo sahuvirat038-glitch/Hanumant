@@ -3,11 +3,12 @@ from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy import select
 from datetime import datetime, timedelta
 from app.database import get_db
-from app.schemas.categories import CategoryCreate, CategoryResponse
-from app.auth.dependencies import get_current_user
-from app.models.categories import Category
 from typing import List
 from uuid import UUID
+from app.auth.dependencies import get_current_user
+
+from app.schemas.categories import CategoryCreate, CategoryResponse
+from app.models.categories import Category
 
 
 router = APIRouter(

@@ -9,6 +9,9 @@ class OrderCreate(BaseModel):
     business_id: UUID
     notes: Optional[str]
 
+class OrderReject(BaseModel):
+    rejection_reason: str
+
 class OrderResponse(BaseModel):
     id: UUID
     business_id: UUID
@@ -25,3 +28,4 @@ class OrderResponse(BaseModel):
 
     class Config:
         from_attributes = True
+

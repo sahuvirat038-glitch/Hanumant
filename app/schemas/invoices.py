@@ -17,3 +17,4 @@ class InvoiceResponse(BaseModel):
 
     class Config:
         from_attributes = True
+

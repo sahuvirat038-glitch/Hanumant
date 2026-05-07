@@ -4,6 +4,7 @@ from typing import Optional
 from datetime import datetime
 
 class ReviewCreate(BaseModel):
+    business_id: UUID
     rating: int
     comment: Optional[str]
 

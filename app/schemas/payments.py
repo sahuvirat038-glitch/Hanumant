@@ -5,10 +5,11 @@ from typing import Optional
 from datetime import datetime
 from app.models.payments import PaymentMode, Status
 
-
 class PaymentCreate(BaseModel):
+    order_id: UUID
     amount: Decimal
     payment_mode: PaymentMode
+    reference_number: Optional[str] = None
 
 class PaymentResponse(BaseModel):
     id : UUID

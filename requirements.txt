@@ -7,3 +7,7 @@ python-jose[cryptography]
 pydantic-settings
 pdfkit
 python-multipart
+slowapi
+reportlab
+aiofiles
+apscheduler
